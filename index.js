@@ -1,13 +1,17 @@
 const express = require("express");
-
+let cors = require("cors");
 const app = express();
 
+app.use(cors());
+app.use(express.json());
+
 app.get("/", (req, res) => {
-  res.send("Orbit server is working!!!");
+  res.json({ msg: `Endpoint Is Working!!` });
 });
 
-const port = 4000;
+const invoiceRouter = require("./api/invoice/invoice.router");
+app.use("/api/invoice", invoiceRouter);
 
-app.listen(port, () => {
-  console.log(`SERVER running on port ${port}`);
+app.listen(4000, () => {
+  console.log("SERVER IS UP & RUNNING");
 });
