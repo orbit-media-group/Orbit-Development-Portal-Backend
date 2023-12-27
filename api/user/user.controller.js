@@ -60,7 +60,7 @@ const userResolvers = {
     users: () => userService.getAllUsers(),
     getMe: async (_, __, context) => {
       const { req } = context;
-console.log(context);
+
       if (!req || !req.headers || !req.headers.authorization) {
         throw new Error("Authorization header not provided");
       }

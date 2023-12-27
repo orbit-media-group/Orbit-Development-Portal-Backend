@@ -5,7 +5,7 @@ import { userTypeDefs, userResolvers } from "./api/user/user.controller.js";
 import jwt from "jsonwebtoken";
 
 import express from "express";
-import { SECRET_KEY } from "./config.js";
+import { PORT, SECRET_KEY } from "./config.js";
 
 const context = ({ req }) => {
   const token = req.headers.authorization || "";
@@ -35,8 +35,8 @@ async function startServer() {
 
   server.applyMiddleware({ app });
 
-  app.listen(4000, () => {
-    console.log("Server is running on port :: 4000");
+  app.listen(PORT, () => {
+    console.log(`Server is running on port :: ${PORT}`);
   });
 }
 
