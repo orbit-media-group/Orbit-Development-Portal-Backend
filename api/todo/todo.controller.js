@@ -1,5 +1,5 @@
-const { gql } = require("apollo-server-express");
-const TodoService = require("./todo.service");
+import { gql } from "apollo-server-express";
+import TodoService from "./todo.service.js";
 
 const todoService = new TodoService();
 
@@ -21,4 +21,4 @@ const todoResolvers = {
   },
 };
 
-module.exports = { todoTypeDefs, todoResolvers };
+export { todoTypeDefs, todoResolvers };

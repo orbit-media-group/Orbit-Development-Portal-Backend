@@ -1,7 +1,6 @@
-require("dotenv").config();
+import mysql from "mysql2";
+import { DATABASE_URL } from "../../config.js";
 
-const mysql = require("mysql2");
-//const connection = mysql.createConnection();
-const connection = mysql.createPool(process.env.DATABASE_URL);
+const connection = mysql.createPool(DATABASE_URL);
 
-module.exports = connection;
+export default connection;

@@ -1,5 +1,5 @@
-const { gql } = require("apollo-server-express");
-const HelloService = require("./hello.service");
+import gql from "apollo-server-express";
+import HelloService from "./hello.service";
 
 const helloService = new HelloService();
 

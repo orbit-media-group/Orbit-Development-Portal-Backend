@@ -9,4 +9,4 @@ class TodoService {
   }
 }
 
-module.exports = TodoService;
+export default TodoService;
