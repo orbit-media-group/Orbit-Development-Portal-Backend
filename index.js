@@ -24,9 +24,23 @@ const context = ({ req }) => {
   }
 };
 
+// Define your GraphQL schema
+const helloTypeDefs = gql`
+  type Query {
+    hello: String
+  }
+`;
+
+// Define your resolvers
+const helloResolvers = {
+  Query: {
+    hello: () => "Bismillah",
+  },
+};
+
 async function startServer() {
-  const typeDefs = mergeTypeDefs([todoTypeDefs, userTypeDefs]);
-  const resolvers = mergeResolvers([todoResolvers, userResolvers]);
+  const typeDefs = mergeTypeDefs([helloTypeDefs]);
+  const resolvers = mergeResolvers([helloResolvers]);
 
   const server = new ApolloServer({
     typeDefs,
