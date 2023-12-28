@@ -14,13 +14,13 @@ const helloTypeDefs = gql`
 // Define your resolvers
 const helloResolvers = {
   Query: {
-    hello: () => "working..!!",
+    hello: () => "working..!!!",
   },
 };
 
 async function startServer() {
-  const typeDefs = mergeTypeDefs([helloTypeDefs]);
-  const resolvers = mergeResolvers([helloResolvers]);
+  const typeDefs = [helloTypeDefs];
+  const resolvers = [helloResolvers];
 
   const server = new ApolloServer({
     typeDefs,
