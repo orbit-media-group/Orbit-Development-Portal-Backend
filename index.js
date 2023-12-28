@@ -28,7 +28,13 @@ async function startServer() {
   const typeDefs = mergeTypeDefs([todoTypeDefs, userTypeDefs]);
   const resolvers = mergeResolvers([todoResolvers, userResolvers]);
 
-  const server = new ApolloServer({ typeDefs, resolvers, context });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context,
+    introspection: true,
+    playground: true,
+  });
   await server.start();
 
   const app = express();
