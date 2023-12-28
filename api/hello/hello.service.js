@@ -1,7 +1,5 @@
-class HelloService {
-  getHelloMessage() {
-    return "Hello, World! i am working..";
-  }
-}
+const getHelloMessage = () => {
+  return "Hello, World! i am working..";
+};
 
-module.exports = HelloService;
+export { getHelloMessage };

@@ -1,7 +1,4 @@
-import gql from "apollo-server-express";
-import HelloService from "./hello.service";
-
-const helloService = new HelloService();
+import { gql } from "apollo-server-express";
 
 // Define your GraphQL schema
 const helloTypeDefs = gql`
@@ -13,8 +10,8 @@ const helloTypeDefs = gql`
 // Define your resolvers
 const helloResolvers = {
   Query: {
-    hello: () => helloService.getHelloMessage(),
+    hello: () => "working..",
   },
 };
 
-module.exports = { helloTypeDefs, helloResolvers };
+export { helloTypeDefs, helloResolvers };
