@@ -1,9 +1,22 @@
 import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge";
-import { ApolloServer } from "apollo-server-express";
-import { helloResolvers, helloTypeDefs } from "./api/hello/hello.controller.js";
+import { ApolloServer, gql } from "apollo-server-express";
 
 import express from "express";
 import { PORT, SECRET_KEY } from "./config.js";
+
+// Define your GraphQL schema
+const helloTypeDefs = gql`
+  type Query {
+    hello: String
+  }
+`;
+
+// Define your resolvers
+const helloResolvers = {
+  Query: {
+    hello: () => "working..!!",
+  },
+};
 
 async function startServer() {
   const typeDefs = mergeTypeDefs([helloTypeDefs]);
