@@ -1,28 +1,28 @@
 import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge";
 import { ApolloServer } from "apollo-server-express";
-import { todoResolvers, todoTypeDefs } from "./api/todo/todo.controller.js";
-import { userTypeDefs, userResolvers } from "./api/user/user.controller.js";
-import jwt from "jsonwebtoken";
+// import { todoResolvers, todoTypeDefs } from "./api/todo/todo.controller.js";
+// import { userTypeDefs, userResolvers } from "./api/user/user.controller.js";
+// import jwt from "jsonwebtoken";
 
 import express from "express";
 import { PORT, SECRET_KEY } from "./config.js";
 
-const context = ({ req }) => {
-  const token = req.headers.authorization || "";
+// const context = ({ req }) => {
+//   const token = req.headers.authorization || "";
 
-  if (!token) {
-    return {};
-  }
+//   if (!token) {
+//     return {};
+//   }
 
-  try {
-    const decoded = jwt.verify(token.replace("Bearer ", ""), SECRET_KEY);
-    const user = decoded.user;
+//   try {
+//     const decoded = jwt.verify(token.replace("Bearer ", ""), SECRET_KEY);
+//     const user = decoded.user;
 
-    return { user, req };
-  } catch (error) {
-    return {};
-  }
-};
+//     return { user, req };
+//   } catch (error) {
+//     return {};
+//   }
+// };
 
 // Define your GraphQL schema
 const helloTypeDefs = gql`
